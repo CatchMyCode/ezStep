@@ -1,0 +1,56 @@
+/**
+ * Run: gradle -b web.gradle bowerInstall
+ */
+
+buildscript {
+    repositories {
+        maven {url "https://plugins.gradle.org/m2/"}
+    }
+    dependencies {
+        classpath "com.moowork.gradle:gradle-node-plugin:0.10"
+    }
+}
+
+apply plugin: 'com.moowork.node'
+
+node {
+    version = '0.12.4'
+    npmVersion = '2.7.5'
+    download = true
+}
+
+/**
+ * Creates own cache folder in Gradle.
+ */
+task npmCacheConfig(type: NpmTask) {
+    description = "Configure the NPM cache"
+    def npmCacheDir = "${gradle.getGradleUserHomeDir()}/caches/npm"
+
+    outputs.files file(npmCacheDir)
+    args = [ 'config', 'set', 'cache', npmCacheDir ]
+}
+
+/**
+ * Downloads Bower.
+ */
+task npmPackages(type: NpmTask, dependsOn: npmCacheConfig) {
+    description = "Install Node.js packages"
+    args = [ 'install' ]
+
+    inputs.files file('package.json')
+    outputs.files file('node_modules')
+}
+
+/**
+ * Runs bower install.
+ */
+task bowerInstall(type: NodeTask, dependsOn: npmPackages) {
+    script = file('node_modules/bower/bin/bower')
+    args = ["--config.storage.cache=${gradle.getGradleUserHomeDir()}/caches/bower/cache",
+            "--config.storage.packages=${gradle.getGradleUserHomeDir()}/caches/bower/packages",
+            "--config.storage.registry=${gradle.getGradleUserHomeDir()}/caches/bower/registry",
+            'install']
+
+    inputs.files file('bower.json')
+    outputs.files file('src/main/webapp/lib')
+}

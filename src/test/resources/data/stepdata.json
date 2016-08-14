@@ -1,0 +1,22 @@
+{
+  "title": "Login with Valid Credentials",
+  "description": "Log into the system",
+  "instructions": [
+    {
+      "sequence": 1,
+      "action": "Open browser with system url",
+      "detail": "url: http://www.domain.com"
+    },
+    {
+      "sequence": 2,
+      "action": "Enter username and password",
+      "detail": "username: admin, password: P@55w0rd"
+    },
+    {
+      "sequence": 3,
+      "action": "Click the 'Login' button",
+      "detail": ""
+    }
+  ],
+  "expectation": "Expect to successfully log into system"
+}

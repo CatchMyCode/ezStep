@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/icon">
+    <link rel="icon" href="favicon.ico" type="image/icon">
+
+    <title>EzStep Client | powered by Catch My Code</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/color.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="lib/jquery-highlighttextarea/jquery.highlighttextarea.min.css">
+
+    <script src="lib/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="components.html">
+</head>
+
+<body>
+<div ng-include="'view/nav/nav.html'"></div>
+<div ng-view></div>
+
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="lib/moment/min/moment.min.js"></script>
+<script src="lib/jquery-highlighttextarea/jquery.highlighttextarea.min.js"></script>
+
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-route/angular-route.min.js"></script>
+<script src="lib/angular-resource/angular-resource.min.js"></script>
+
+<script src="app.js"></script>
+<script src="ng/directive.js"></script>
+
+<script src="view/nav/nav.js"></script>
+<script src="view/main/main.js"></script>
+<!--<script src="view/404/404.js"></script>-->
+<!--<script src="view/job/job.js"></script>-->
+<!--<script src="view/jobs/jobs.js"></script>-->
+<!--<script src="view/configs/configs.js"></script>-->
+</body>
+
+</html>

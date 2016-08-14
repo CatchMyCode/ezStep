@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {url "http://repo.spring.io/milestone"}
+        maven {url "http://repo.spring.io/release"}
+        maven {url "http://repo.spring.io/snapshot"}
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE"
+        classpath 'io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE'
+    }
+}
+
+
+group 'com.catchmycode'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'war'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'spring-boot'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {url "http://repo.spring.io/milestone"}
+    maven {url "http://repo.spring.io/release"}
+    maven {url "http://repo.spring.io/snapshot"}
+}
+
+dependencies {
+
+    compile 'org.springframework:spring-core'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'org.springframework.boot:spring-boot-starter-test'
+
+    compile 'com.h2database:h2:1.4.190'
+    compile 'com.google.guava:guava:18.0'
+    compile 'joda-time:joda-time:2.8.2'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.1'
+
+
+    testCompile ('org.testng:testng:6.9.8') {
+        exclude group: 'junit', module: 'junit'
+    }
+}
+
+springBoot {
+    mainClass = "com.catchmycode.ezstep.Application"
+    backupSource = true
+}

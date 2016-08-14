@@ -1,0 +1,11 @@
+*.iml
+build/classes
+build/dependency-cache
+build/resources
+build/tmp
+.DS_STORE
+.idea/
+node_modules
+src/main/webapp/lib
+.gradle/
+out/
